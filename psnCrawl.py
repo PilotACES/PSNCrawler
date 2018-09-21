@@ -39,6 +39,7 @@ def get_gameInfo(url):
     page1_game_list = BeautifulSoup(target_html, 'lxml')
     page2_game_list = page1_game_list.find_all('div', class_=re.compile('grid-cell grid-cell--game'))
     games_list = []
+
     for gameObj in page2_game_list:
         dom = etree.HTML(str(gameObj))
         gameDiv = dom.xpath('//span[@title]/@title')
